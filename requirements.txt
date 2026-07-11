@@ -1,0 +1,15 @@
+torch
+requests
+datasets
+huggingface_hub
+pandas
+numpy
+tqdm
+jiwer
+sacrebleu
+onnx
+onnxruntime
+matplotlib
+seaborn
+pyyaml
+jupyter

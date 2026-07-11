@@ -1,0 +1,17 @@
+venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+data/raw/
+data/processed/*
+!data/processed/vocab_src.json
+!data/processed/vocab_tgt.json
+*.pt
+*.onnx
+checkpoints/
+logs/
+.env
+node_modules/
+demo/dist/
+.DS_Store
+.claude/
