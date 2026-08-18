@@ -17,17 +17,17 @@ Word accuracy (exact match), character error rate, and top-3 accuracy (beam sear
 
 | Test set | Metric | BiLSTM+Attn | Transformer | IndicXlit* |
 |---|---|---|---|---|
-| **Aksharantar test** (in-domain, 82k pairs) | Word acc | 77.97% | **78.30%** | — |
-| | CER | 2.63% | **2.57%** | — |
-| | Top-3 acc | **94.80%** | 94.70% | — |
-| **Dakshina lexicon** (out-of-domain, 5.6k pairs) | Word acc | 61.57% | **61.60%** | — |
-| | CER | **8.17%** | 8.36% | — |
-| | Top-3 acc | **77.40%** | 76.60% | — |
-| **Dakshina sentences** (real Wikipedia text, 42k pairs) | Word acc | 50.85% | **52.04%** | — |
-| | CER | 9.51% | **9.31%** | — |
-| | Top-3 acc | 68.30% | **70.90%** | — |
+| **Aksharantar test** (in-domain, 82k pairs) | Word acc | 77.97% | 78.30% | **87.15%** |
+| | CER | 2.63% | 2.57% | **1.59%** |
+| | Top-3 acc | 94.80% | 94.70% | **96.30%** |
+| **Dakshina lexicon** (out-of-domain, 5.6k pairs) | Word acc | 61.57% | 61.60% | **73.65%** |
+| | CER | 8.17% | 8.36% | **5.69%** |
+| | Top-3 acc | 77.40% | 76.60% | **80.70%** |
+| **Dakshina sentences** (real Wikipedia text, 42k pairs) | Word acc | 50.85% | 52.04% | **64.90%** |
+| | CER | 9.51% | 9.31% | **6.75%** |
+| | Top-3 acc | 68.30% | 70.90% | **73.95%** |
 
-*IndicXlit column pending (runs on Kaggle; fairseq doesn't build on Windows — see `notebooks/03_kaggle_indicxlit.ipynb`).
+*IndicXlit (AI4Bharat's production model, ~11M params, trained on 26M pairs across 21 languages) evaluated on 2,000-pair random samples per test set (seed 42) — its inference is CPU-bound and word-by-word; our models are evaluated on the full test sets. Run via `notebooks/03_kaggle_indicxlit.ipynb` (fairseq requires a Python 3.10 + torch 2.5 sandbox — see the notebook for the dependency archaeology).
 
 | | BiLSTM+Attn | Transformer |
 |---|---|---|
@@ -36,9 +36,10 @@ Word accuracy (exact match), character error rate, and top-3 accuracy (beam sear
 
 **Takeaways**
 
-- The Transformer matches or beats the BiLSTM on every test set with **32% fewer parameters**, with the biggest edge on the hardest set (real-text romanization) — consistent with self-attention capturing long-range dependencies more directly than recurrence.
-- The in-domain → out-of-domain drop (78% → 51-62%) is the honest number many transliteration writeups omit. Real free-text romanization is far more variable than curated word lists.
-- Top-3 accuracy is dramatically higher than top-1 everywhere (94.8% vs 78% in-domain): the right answer is usually *in the model's beam*, which motivates the click-to-choose UI in the demo.
+- **Our from-scratch 5.6M-param Transformer reaches 80–90% of IndicXlit's word accuracy** (89.8% of it in-domain, 80.2% on the hardest set) at roughly half its size, trained on 1/26th of its data, on a free Kaggle GPU — and unlike IndicXlit it runs fully client-side in a browser.
+- The out-of-domain slide is a property of the *task*, not just our models: IndicXlit also drops 87% → 65% from curated word lists to real Wikipedia romanization.
+- The Transformer matches or beats the BiLSTM on every test set with **32% fewer parameters**, with the biggest edge on the hardest set — consistent with self-attention capturing long-range dependencies more directly than recurrence.
+- Top-3 accuracy is dramatically higher than top-1 everywhere, and nearly closes the gap to IndicXlit (94.7% vs 96.3% in-domain): the right answer is usually *in the model's beam*, which motivates the click-to-choose UI in the demo.
 - CER stays under 10% even where word accuracy is ~51% — wrong predictions are typically off by a character or two, not garbage.
 
 ## Honest-evaluation details (the part that keeps the numbers real)

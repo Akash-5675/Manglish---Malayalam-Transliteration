@@ -86,6 +86,7 @@ def main():
               f"cer={cer:.4f}  top3_acc={top3:.4f}  ({time.time()-t0:.0f}s)")
 
     out_path = LOG_DIR / "indicxlit_results.json"
+    out_path.parent.mkdir(exist_ok=True)
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump(results, f, ensure_ascii=False, indent=2)
     print(f"\nsaved -> {out_path}")
