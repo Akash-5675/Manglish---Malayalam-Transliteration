@@ -1,0 +1,44 @@
+{
+  "lstm/aksharantar": {
+    "n": 82433,
+    "word_acc": 0.779651353220191,
+    "cer": 0.02625422909618173,
+    "top3_acc": 0.948,
+    "top3_n": 1000
+  },
+  "lstm/dakshina_lexicon": {
+    "n": 5610,
+    "word_acc": 0.615686274509804,
+    "cer": 0.08168372684567889,
+    "top3_acc": 0.774,
+    "top3_n": 1000
+  },
+  "lstm/dakshina_sentences": {
+    "n": 41805,
+    "word_acc": 0.5085037674919268,
+    "cer": 0.0951106238969451,
+    "top3_acc": 0.683,
+    "top3_n": 1000
+  },
+  "transformer/aksharantar": {
+    "n": 82433,
+    "word_acc": 0.7830359200805502,
+    "cer": 0.025731317176459757,
+    "top3_acc": 0.947,
+    "top3_n": 1000
+  },
+  "transformer/dakshina_lexicon": {
+    "n": 5610,
+    "word_acc": 0.6160427807486631,
+    "cer": 0.08359145828632382,
+    "top3_acc": 0.766,
+    "top3_n": 1000
+  },
+  "transformer/dakshina_sentences": {
+    "n": 41805,
+    "word_acc": 0.5203922975720607,
+    "cer": 0.09305007186914357,
+    "top3_acc": 0.709,
+    "top3_n": 1000
+  }
+}

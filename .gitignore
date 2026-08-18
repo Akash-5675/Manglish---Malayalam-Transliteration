@@ -11,7 +11,12 @@ data/processed/*
 # the demo ships its model files (needed for static deploy)
 !demo/public/model/*.onnx
 checkpoints/
-logs/
+logs/*
+!logs/eval_results.json
+!logs/indicxlit_results.json
+!logs/error_analysis.json
+!logs/lstm_1M.csv
+!logs/transformer_1M.csv
 .env
 node_modules/
 demo/dist/

@@ -1,0 +1,24 @@
+{
+  "indicxlit/aksharantar": {
+    "n": 2000,
+    "word_acc": 0.8715,
+    "cer": 0.0159,
+    "top3_acc": 0.963,
+    "top3_n": 2000,
+    "note": "transcribed from Kaggle run log (final JSON save failed on missing logs/ dir, fixed since)"
+  },
+  "indicxlit/dakshina_lexicon": {
+    "n": 2000,
+    "word_acc": 0.7365,
+    "cer": 0.0569,
+    "top3_acc": 0.807,
+    "top3_n": 2000
+  },
+  "indicxlit/dakshina_sentences": {
+    "n": 2000,
+    "word_acc": 0.649,
+    "cer": 0.0675,
+    "top3_acc": 0.7395,
+    "top3_n": 2000
+  }
+}

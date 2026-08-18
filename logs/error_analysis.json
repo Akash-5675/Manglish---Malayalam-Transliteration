@@ -1,0 +1,356 @@
+{
+  "lstm": {
+    "total_errors_in_test_set": 20547,
+    "total_test_set_size": 41805,
+    "sample_size": 200,
+    "category_counts": {
+      "chillu_ending": 42,
+      "gemination_ambiguity": 80,
+      "conjunct_virama_error": 111,
+      "other_unclassified": 32,
+      "vowel_length_ambiguity": 38,
+      "digraph_ambiguity_nj_zh": 6
+    },
+    "examples": {
+      "chillu_ending": [
+        {
+          "roman": "agnibhagavan",
+          "gold": "പത്മനാഭൻ",
+          "pred": "പദ്മനഭൻ"
+        },
+        {
+          "roman": "hichens",
+          "gold": "സൊഴ്യൽ",
+          "pred": "സോഷ്യൽ"
+        },
+        {
+          "roman": "valichoori",
+          "gold": "വിദഗ്ദ്ധർ",
+          "pred": "വിധഗ്ധർ"
+        },
+        {
+          "roman": "thoola",
+          "gold": "അച്ചുതണ്ടിൽ",
+          "pred": "അച്യുതണ്ടിൽ"
+        },
+        {
+          "roman": "speeshees",
+          "gold": "പ്രോകാരിയോട്ടുകളിൽ",
+          "pred": "പ്രൊകാരിയോട്ടുകളിൽ"
+        }
+      ],
+      "gemination_ambiguity": [
+        {
+          "roman": "clokkukalum",
+          "gold": "ഉത്സവം",
+          "pred": "ഉത്സസ്വം"
+        },
+        {
+          "roman": "indhriyagocharamaaya",
+          "gold": "പ്രാപിക്കുന്നതു",
+          "pred": "പ്രാപിക്കുന്നത്"
+        },
+        {
+          "roman": "kazhivullathinal",
+          "gold": "ഭരണസമിതിയുടേയും",
+          "pred": "ഭരണസമിതിയുടെയും"
+        },
+        {
+          "roman": "valichoori",
+          "gold": "വിദഗ്ദ്ധർ",
+          "pred": "വിധഗ്ധർ"
+        },
+        {
+          "roman": "servisukalilekk",
+          "gold": "അടിമ",
+          "pred": "അദിമ"
+        }
+      ],
+      "conjunct_virama_error": [
+        {
+          "roman": "clokkukalum",
+          "gold": "ഉത്സവം",
+          "pred": "ഉത്സസ്വം"
+        },
+        {
+          "roman": "viplavathinu",
+          "gold": "വളച്ച്",
+          "pred": "വളച്ചു"
+        },
+        {
+          "roman": "columb",
+          "gold": "പൈപ്പാണ്",
+          "pred": "പിപ്പനു"
+        },
+        {
+          "roman": "simhasanarohanam",
+          "gold": "മഹാരാജാവിന്റെ",
+          "pred": "മഹാരാജവിന്റെ"
+        },
+        {
+          "roman": "indhriyagocharamaaya",
+          "gold": "പ്രാപിക്കുന്നതു",
+          "pred": "പ്രാപിക്കുന്നത്"
+        }
+      ],
+      "other_unclassified": [
+        {
+          "roman": "touristukalanu",
+          "gold": "ഒറ്റപ്പാലം",
+          "pred": "ഒറ്റപ്പളം"
+        },
+        {
+          "roman": "israyelinu",
+          "gold": "സാവധാനം",
+          "pred": "സവധനം"
+        },
+        {
+          "roman": "mosin",
+          "gold": "നൂസാ",
+          "pred": "നൂസ"
+        },
+        {
+          "roman": "akshararthathil",
+          "gold": "സംഘം",
+          "pred": "സംഗം"
+        },
+        {
+          "roman": "yethiya",
+          "gold": "മുരാരേ",
+          "pred": "നുറരെ"
+        }
+      ],
+      "vowel_length_ambiguity": [
+        {
+          "roman": "indhriyagocharamaaya",
+          "gold": "പ്രാപിക്കുന്നതു",
+          "pred": "പ്രാപിക്കുന്നത്"
+        },
+        {
+          "roman": "valichoori",
+          "gold": "വിദഗ്ദ്ധർ",
+          "pred": "വിധഗ്ധർ"
+        },
+        {
+          "roman": "thoola",
+          "gold": "അച്ചുതണ്ടിൽ",
+          "pred": "അച്യുതണ്ടിൽ"
+        },
+        {
+          "roman": "speeshees",
+          "gold": "പ്രോകാരിയോട്ടുകളിൽ",
+          "pred": "പ്രൊകാരിയോട്ടുകളിൽ"
+        },
+        {
+          "roman": "saalisilin",
+          "gold": "ഫ്യവന്തസ്സിന്റെ",
+          "pred": "ഫ്യവന്ധസ്സിന്റെ"
+        }
+      ],
+      "digraph_ambiguity_nj_zh": [
+        {
+          "roman": "kazhivullathinal",
+          "gold": "ഭരണസമിതിയുടേയും",
+          "pred": "ഭരണസമിതിയുടെയും"
+        },
+        {
+          "roman": "kizhakkum",
+          "gold": "റോഹതാങ്",
+          "pred": "റോത്താങ്"
+        },
+        {
+          "roman": "panjedukkunnathinanu",
+          "gold": "ജീവിച്ചിരുന്നത്",
+          "pred": "ജേവിച്ചിരുന്നത്"
+        },
+        {
+          "roman": "thamizhil",
+          "gold": "സ്വാധീനം",
+          "pred": "സ്വധിനം"
+        },
+        {
+          "roman": "kunjivithu",
+          "gold": "പെനാംഗ്",
+          "pred": "പേനാംഗു"
+        }
+      ]
+    }
+  },
+  "transformer": {
+    "total_errors_in_test_set": 20050,
+    "total_test_set_size": 41805,
+    "sample_size": 200,
+    "category_counts": {
+      "other_unclassified": 25,
+      "conjunct_virama_error": 123,
+      "chillu_ending": 42,
+      "gemination_ambiguity": 91,
+      "vowel_length_ambiguity": 47,
+      "digraph_ambiguity_nj_zh": 7
+    },
+    "examples": {
+      "other_unclassified": [
+        {
+          "roman": "vahanangal",
+          "gold": "വേപ്പെണ്ണ",
+          "pred": "വെപ്പെന്ന"
+        },
+        {
+          "roman": "ludvigsbernar",
+          "gold": "മലരേ",
+          "pred": "മലരെ"
+        },
+        {
+          "roman": "leybal",
+          "gold": "ഓഡിറ്റ്",
+          "pred": "ഒഡിറ്റ്"
+        },
+        {
+          "roman": "chalachithramanu",
+          "gold": "ആരംഭിച്ച",
+          "pred": "അരംഭിച്ച"
+        },
+        {
+          "roman": "krishiyidagalila",
+          "gold": "കോൺസുലേറ്റിന്റെ",
+          "pred": "കൌൺസുലേറ്റിന്റെ"
+        }
+      ],
+      "conjunct_virama_error": [
+        {
+          "roman": "varayum",
+          "gold": "നല്കിയ",
+          "pred": "നൽകിയ"
+        },
+        {
+          "roman": "ennurappu",
+          "gold": "സമൻഗാൻ",
+          "pred": "സമങ്ങാണ്"
+        },
+        {
+          "roman": "metropolitian",
+          "gold": "പാറ്റേണുകളിൽ",
+          "pred": "പട്ടേണുകളിൽ"
+        },
+        {
+          "roman": "chaalengers",
+          "gold": "ഡയറക്റ്ററിയും",
+          "pred": "ഡയറക്ടറിയും"
+        },
+        {
+          "roman": "arogyathe",
+          "gold": "പണത്തിനു",
+          "pred": "പണത്തിന്"
+        }
+      ],
+      "chillu_ending": [
+        {
+          "roman": "ennurappu",
+          "gold": "സമൻഗാൻ",
+          "pred": "സമങ്ങാണ്"
+        },
+        {
+          "roman": "missile",
+          "gold": "കാരൂർ",
+          "pred": "കരുറെ"
+        },
+        {
+          "roman": "metropolitian",
+          "gold": "പാറ്റേണുകളിൽ",
+          "pred": "പട്ടേണുകളിൽ"
+        },
+        {
+          "roman": "nirdesangal",
+          "gold": "ആനിമേഷൻ",
+          "pred": "അനിമേഷൻ"
+        },
+        {
+          "roman": "kunchan",
+          "gold": "ഖുറാസാൻ",
+          "pred": "കുരസൻ"
+        }
+      ],
+      "gemination_ambiguity": [
+        {
+          "roman": "ennurappu",
+          "gold": "സമൻഗാൻ",
+          "pred": "സമങ്ങാണ്"
+        },
+        {
+          "roman": "missile",
+          "gold": "കാരൂർ",
+          "pred": "കരുറെ"
+        },
+        {
+          "roman": "chaalengers",
+          "gold": "ഡയറക്റ്ററിയും",
+          "pred": "ഡയറക്ടറിയും"
+        },
+        {
+          "roman": "noottimoonnu",
+          "gold": "സർക്കറിന്റെ",
+          "pred": "സക്കാറിന്റെ"
+        },
+        {
+          "roman": "aakaashavrukshamaayirunnu",
+          "gold": "കേന്ദ്രീകരിച്ചുളള",
+          "pred": "കേന്ദ്രീകരിച്ചുള്ള"
+        }
+      ],
+      "vowel_length_ambiguity": [
+        {
+          "roman": "chaalengers",
+          "gold": "ഡയറക്റ്ററിയും",
+          "pred": "ഡയറക്ടറിയും"
+        },
+        {
+          "roman": "noottimoonnu",
+          "gold": "സർക്കറിന്റെ",
+          "pred": "സക്കാറിന്റെ"
+        },
+        {
+          "roman": "aakaashavrukshamaayirunnu",
+          "gold": "കേന്ദ്രീകരിച്ചുളള",
+          "pred": "കേന്ദ്രീകരിച്ചുള്ള"
+        },
+        {
+          "roman": "briteeshukaarude",
+          "gold": "താലൂക്കിൽ",
+          "pred": "തലൂക്കിൽ"
+        },
+        {
+          "roman": "raamnaadhinte",
+          "gold": "രോഗകാരി",
+          "pred": "രൂഗകാരി"
+        }
+      ],
+      "digraph_ambiguity_nj_zh": [
+        {
+          "roman": "izhajandhukkal",
+          "gold": "സർവ്വ",
+          "pred": "സർവ"
+        },
+        {
+          "roman": "kazhivulla",
+          "gold": "ഭൂട്ടോയും",
+          "pred": "ഭുട്ടോയും"
+        },
+        {
+          "roman": "pathivezholam",
+          "gold": "ആരാധന",
+          "pred": "അരധന"
+        },
+        {
+          "roman": "muzhakalpoleyulla",
+          "gold": "വേര്",
+          "pred": "വേരു"
+        },
+        {
+          "roman": "paranjittund",
+          "gold": "ബുധോപരിതത്തിലെ",
+          "pred": "ഭുദ്ധോപരിതലത്തിലെ"
+        }
+      ]
+    }
+  }
+}
