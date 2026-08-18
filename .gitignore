@@ -8,6 +8,8 @@ data/processed/*
 !data/processed/vocab_tgt.json
 *.pt
 *.onnx
+# the demo ships its model files (needed for static deploy)
+!demo/public/model/*.onnx
 checkpoints/
 logs/
 .env
