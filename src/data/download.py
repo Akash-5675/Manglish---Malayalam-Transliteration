@@ -55,7 +55,7 @@ def download_aksharantar():
 
 def download_dakshina():
     """Download and extract the Dakshina v1.0 archive (contains all languages; we keep only ml/)."""
-    dest = RAW_DIR / "dakshina"
+    dest = RAW_DIR / "dakshina_dataset_v1.0"
     if dest.exists():
         print(f"[skip] {dest} already exists")
         return

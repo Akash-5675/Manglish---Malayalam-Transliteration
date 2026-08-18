@@ -98,5 +98,56 @@ def process_aksharantar():
     print(f"Aksharantar: {len(raw_pairs)} raw -> {len(cleaned)} cleaned pairs -> {out}")
 
 
+DAKSHINA_DIR = RAW_DIR / "dakshina_dataset_v1.0" / "ml"
+
+
+def process_dakshina_lexicon():
+    """Attested-romanization lexicon, held out entirely as a test set (never
+    trained on) -- reports native \\t roman \\t annotator_count per line."""
+    src = DAKSHINA_DIR / "lexicons" / "ml.translit.sampled.test.tsv"
+    raw_pairs = []
+    with open(src, encoding="utf-8") as f:
+        for line in f:
+            parts = line.rstrip("\n").split("\t")
+            if len(parts) < 2:
+                continue
+            native, roman = parts[0], parts[1]
+            raw_pairs.append((roman, native))
+
+    cleaned = clean_pairs(raw_pairs)
+    out = PROC_DIR / "test_dakshina_lexicon.jsonl"
+    with open(out, "w", encoding="utf-8") as f:
+        for p in cleaned:
+            f.write(json.dumps(p, ensure_ascii=False) + "\n")
+    print(f"Dakshina lexicon: {len(raw_pairs)} raw -> {len(cleaned)} cleaned pairs -> {out}")
+
+
+def process_dakshina_sentences():
+    """Word-level pairs extracted (by Dakshina's own alignment) from real
+    romanized Wikipedia sentences -- harder and more realistic than the
+    lexicon, since it reflects actual free-text romanization, not elicited
+    single-word attestations. </s> sentence-boundary markers are dropped."""
+    src = DAKSHINA_DIR / "romanized" / "ml.romanized.rejoined.aligned.tsv"
+    raw_pairs = []
+    with open(src, encoding="utf-8") as f:
+        for line in f:
+            parts = line.rstrip("\n").split("\t")
+            if len(parts) < 2:
+                continue
+            native, roman = parts[0], parts[1]
+            if native == "</s>" or roman == "</s>":
+                continue
+            raw_pairs.append((roman, native))
+
+    cleaned = clean_pairs(raw_pairs)
+    out = PROC_DIR / "test_dakshina_sentences.jsonl"
+    with open(out, "w", encoding="utf-8") as f:
+        for p in cleaned:
+            f.write(json.dumps(p, ensure_ascii=False) + "\n")
+    print(f"Dakshina sentences (word-aligned): {len(raw_pairs)} raw -> {len(cleaned)} cleaned pairs -> {out}")
+
+
 if __name__ == "__main__":
     process_aksharantar()
+    process_dakshina_lexicon()
+    process_dakshina_sentences()

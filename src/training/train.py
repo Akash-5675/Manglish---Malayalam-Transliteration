@@ -22,6 +22,7 @@ from data.vocab import Vocab, PAD_IDX
 from models.lstm_attention import Seq2SeqLSTM, count_parameters
 from training.dataset import make_dataloader
 from inference.decode import greedy_decode
+from utils import set_seed
 
 PROC_DIR = Path(__file__).resolve().parents[2] / "data" / "processed"
 CKPT_DIR = Path(__file__).resolve().parents[2] / "checkpoints"
@@ -49,6 +50,7 @@ def parse_args():
     p.add_argument("--max-train-samples", type=int, default=None)
     p.add_argument("--max-val-samples", type=int, default=None)
     p.add_argument("--run-name", default="lstm_attn")
+    p.add_argument("--seed", type=int, default=42)
     p.add_argument("--device", default="cuda" if torch.cuda.is_available() else "cpu")
     return p.parse_args()
 
@@ -105,6 +107,7 @@ def word_accuracy(model, loader, tgt_vocab, device, max_examples):
 
 def main():
     args = parse_args()
+    set_seed(args.seed)
     device = torch.device(args.device)
     print(f"device: {device}")
 
