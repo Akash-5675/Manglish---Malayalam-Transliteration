@@ -1,5 +1,7 @@
 # Manglish → Malayalam Transliteration
 
+**Live demo: [manglish-malayalam-transliteration.vercel.app](https://manglish-malayalam-transliteration.vercel.app/)** — runs entirely in your browser, no server.
+
 Character-level neural transliteration from romanized Malayalam ("Manglish") to Malayalam script — two architectures trained from scratch in PyTorch, evaluated honestly across three test sets, benchmarked against a production system, and deployed as a fully client-side browser demo (ONNX Runtime Web — no server, no API).
 
 ```
@@ -61,6 +63,8 @@ Word accuracy (exact match), character error rate, and top-3 accuracy (beam sear
 (Categories overlap; a word can hit several.) Most failures are *phonologically plausible* alternatives — often spellings a human might also produce — rather than random noise.
 
 ## Browser demo
+
+**[manglish-malayalam-transliteration.vercel.app](https://manglish-malayalam-transliteration.vercel.app/)**
 
 The Transformer runs **entirely client-side**: exported to ONNX (encoder + decoder-step as separate graphs, greedy/beam loop reimplemented in JS), executed by ONNX Runtime Web's WASM backend. ~25MB one-time model download, then every keystroke is processed locally. Type Manglish, get Malayalam, click any word for the model's top-3 candidates.
 
